@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/common.iml" filepath="$PROJECT_DIR$/.idea/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-assist/common-assist.iml" filepath="$PROJECT_DIR$/common-assist/common-assist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-dao/common-dao.iml" filepath="$PROJECT_DIR$/common-dao/common-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-excel/common-excel.iml" filepath="$PROJECT_DIR$/common-excel/common-excel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/third-wechat/third-wechat.iml" filepath="$PROJECT_DIR$/third-wechat/third-wechat.iml" />
+    </modules>
+  </component>
+</project>
