@@ -54,7 +54,7 @@ public class WechatLoginServlet extends HttpServlet {
 			}
 			// 认证用户信息
 			String loginId = userinfo.getUserName( code );
-//			String loginId = "zzyh";//debug
+//			String loginId = "test";//debug
 			request.setAttribute("wechat_debug_loginId", loginId);
 			boolean exist = authFactory.isExist(loginId);
 			request.setAttribute("wechat_debug_system_exist_user", exist);
