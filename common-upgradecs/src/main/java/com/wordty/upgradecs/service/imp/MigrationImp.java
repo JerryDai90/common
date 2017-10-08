@@ -24,11 +24,11 @@ public class MigrationImp implements IMigration {
     /**
      * The Conf.
      */
-    private IConf conf = new FileConfImp("");
+    private IConf conf = new FileConfImp(MigrationImp.class.getClassLoader().getResource("conf.properties").getPath());
 
 
     public void move() throws IOException {
-        Assert.notNull(conf, "配置文件为初始化");
+        Assert.notNull(conf, "配置文件未初始化");
         ConfVO confVO = conf.read();
 
         List<String> srcPath = confVO.getSrcPath();
@@ -45,7 +45,6 @@ public class MigrationImp implements IMigration {
             }
             //如果是资源文件，直接复制到指定文件夹
             if (filePath.indexOf("WebRoot") != -1) {
-//                xxx(srcFile, confVO, filePath);
                 String targetFilePath = Utils.joinFilePath(confVO.getTargetBasePath(), filePath);
                 FileUtils.copyFile(srcFile, new File(targetFilePath));
                 continue;
@@ -77,11 +76,6 @@ public class MigrationImp implements IMigration {
         }
     }
 
-
-//    private void xxx(File srcFile, ConfVO conf, String filePath) throws IOException {
-//        String targetFilePath = Utils.joinFilePath(conf.getTargetBasePath(), filePath);
-//        FileUtils.copyFile(srcFile, new File(targetFilePath));
-//    }
 
     /**
      * .

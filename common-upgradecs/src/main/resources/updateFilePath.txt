@@ -1,0 +1,4 @@
+WebRoot/WEB-INF/mappings/test.hbm.xml
+WebRoot/portal/test01.jsp
+src/com/wordty/test.java
+src/hibernate.cfg.xml
