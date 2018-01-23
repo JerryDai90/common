@@ -1,9 +1,8 @@
 package com.wordty.upgradecs.service.imp;
 
-import com.wordty.common.assist.utils.Assert;
 import com.wordty.common.assist.utils.Utils;
-import com.wordty.upgradecs.service.IConf;
 import com.wordty.upgradecs.service.IMigration;
+import com.wordty.upgradecs.utils.BeanUtil;
 import com.wordty.upgradecs.vo.ConfVO;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
@@ -21,15 +20,9 @@ import java.util.List;
  */
 public class MigrationImp implements IMigration {
 
-    /**
-     * The Conf.
-     */
-    private IConf conf = new FileConfImp(MigrationImp.class.getClassLoader().getResource("conf.properties").getPath());
-
-
     public void move() throws IOException {
-        Assert.notNull(conf, "配置文件未初始化");
-        ConfVO confVO = conf.read();
+
+        ConfVO confVO = BeanUtil.getIConf().read();
 
         List<String> srcPath = confVO.getSrcPath();
         String classPath = confVO.getClassPath().get(0);
@@ -74,21 +67,6 @@ public class MigrationImp implements IMigration {
                 FileUtils.copyFile(file, new File(targetFilePath));
             }
         }
-    }
-
-
-    /**
-     * .
-     *
-     * @param args input arguments
-     * @throws IOException io exception
-     * @author jerry
-     * @date 2017 -10-07 22:15:12
-     */
-    public static void main(String[] args) throws IOException {
-        IMigration migration = new MigrationImp();
-
-        migration.move();
     }
 
     /**
